@@ -2,9 +2,12 @@
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
+#include "src/onScreenDef.h"
 
-#define SCREEN_WIDTH 64 // OLED display width, in pixels
-#define SCREEN_HEIGHT 32 // OLED display height, in pixels
+//onScreenDef should contain (as time goes on) more and more things about the screen
+//including generated initialization functions. These will be built by desktopapp
+//at the time of initialization.
+
 
 // Declaration for an SSD1306 display connected to I2C (SDA, SCL pins)
 // The pins for I2C are defined by the Wire-library.
@@ -90,8 +93,7 @@ void setup() {
 
   display.clearDisplay();
   display.display();
-
-  display.setTextSize(1);
+  
   display.setTextColor(SSD1306_WHITE);
   display.cp437(true);
   Serial.println("exit setup");
